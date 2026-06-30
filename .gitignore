@@ -220,3 +220,4 @@ __marimo__/
 # Home Assistant test config (if ever placed in this repo for local testing)
 secrets.yaml
 .storage/
+custom_components/tzer0m_dashboard/test_connection.py
