@@ -1,0 +1,24 @@
+{
+    "entity": {
+      "binary_sensor": {
+        "service_online": {
+          "default": "mdi:server-network",
+          "state": {
+            "on": "mdi:server-network",
+            "off": "mdi:server-network-off"
+          }
+        }
+      },
+      "sensor": {
+        "deploy_status": {
+          "default": "mdi:rocket-launch",
+          "state": {
+            "passing": "mdi:rocket-launch",
+            "failing": "mdi:rocket-launch-outline",
+            "running": "mdi:progress-rocket",
+            "unknown": "mdi:help-rocket"
+          }
+        }
+      }
+    }
+  }

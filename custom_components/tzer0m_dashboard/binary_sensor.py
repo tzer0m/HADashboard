@@ -61,6 +61,23 @@ class ServiceOnlineBinarySensor(CoordinatorEntity[DashboardUpdateCoordinator], B
         return bool(service["health"]["isOnline"])
 
     @property
+    def extra_state_attributes(self) -> dict[str, str | int | None]:
+        """Expose the raw health check details: status code, response time, last checked, and error."""
+        service = self.coordinator.data.get(self.ServiceName)
+
+        if service is None or service.get("health") is None:
+            return {}
+
+        health = service["health"]
+
+        return {
+            "status_code": health.get("statusCode"),
+            "response_time_ms": health.get("responseTimeMs"),
+            "last_checked": health.get("lastChecked"),
+            "error": health.get("error"),
+        }
+
+    @property
     def name(self) -> str:
         """Return the display name for this entity, used alongside the device name."""
         return self.ServiceName

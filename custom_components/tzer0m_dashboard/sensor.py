@@ -35,7 +35,6 @@ class DeployStatusSensor(CoordinatorEntity[DashboardUpdateCoordinator], SensorEn
 
     _attr_has_entity_name = True
     _attr_translation_key = "deploy_status"
-    _attr_icon = "mdi:rocket-launch"
 
     def __init__(self, coordinator: DashboardUpdateCoordinator, entry: ConfigEntry, service_name: str) -> None:
         """Initialise the deploy status sensor for a single service."""
