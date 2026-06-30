@@ -216,3 +216,7 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Home Assistant test config (if ever placed in this repo for local testing)
+secrets.yaml
+.storage/
