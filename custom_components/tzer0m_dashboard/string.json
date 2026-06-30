@@ -1,0 +1,22 @@
+{
+    "config": {
+      "step": {
+        "user": {
+          "title": "Connect to HADashboard",
+          "description": "Enter the base URL of your dashboard instance and its API key.",
+          "data": {
+            "host": "Dashboard URL",
+            "api_key": "API Key"
+          }
+        }
+      },
+      "error": {
+        "cannot_connect": "Couldn't connect to the dashboard. Check the URL and that it's reachable from Home Assistant.",
+        "invalid_auth": "The dashboard rejected the API key.",
+        "unknown": "Unexpected error occurred."
+      },
+      "abort": {
+        "already_configured": "This dashboard is already configured."
+      }
+    }
+  }
