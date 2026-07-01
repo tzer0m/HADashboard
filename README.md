@@ -38,3 +38,5 @@ All entities update on a 60 second polling interval, matching the dashboard's ow
 ## License
 
 Personal project, provided as-is.
+
+type: custom:hadashboard-card
