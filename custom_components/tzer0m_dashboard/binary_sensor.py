@@ -61,20 +61,29 @@ class ServiceOnlineBinarySensor(CoordinatorEntity[DashboardUpdateCoordinator], B
         return bool(service["health"]["isOnline"])
 
     @property
-    def extra_state_attributes(self) -> dict[str, str | int | None]:
-        """Expose the raw health check details: status code, response time, last checked, and error."""
+    def extra_state_attributes(self) -> dict[str, str | int | bool | None]:
+        """Expose health check details and static service configuration."""
         service = self.coordinator.data.get(self.ServiceName)
 
-        if service is None or service.get("health") is None:
+        if service is None:
             return {}
 
-        health = service["health"]
+        health = service.get("health") or {}
 
         return {
             "status_code": health.get("statusCode"),
             "response_time_ms": health.get("responseTimeMs"),
             "last_checked": health.get("lastChecked"),
             "error": health.get("error"),
+            "url": service.get("url"),
+            "type": service.get("type"),
+            "access": service.get("access"),
+            "device": service.get("device"),
+            "local_ip": service.get("localIp"),
+            "local_port": service.get("localPort"),
+            "auth_required": service.get("authRequired"),
+            "favicon_url": service.get("faviconUrl"),
+            "repo_name": service.get("repoName"),
         }
 
     @property
